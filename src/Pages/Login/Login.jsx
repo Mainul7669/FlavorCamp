@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
-import { Link } from "react-router-dom";
-function Login() {
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+const Login = () => {
+
+  const { signIn } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -17,8 +27,23 @@ function Login() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    signIn(data.email, data.password)
+    .then(result => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User Login successful.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(from, { replace: true });
+    })
   };
+
+  
+
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">

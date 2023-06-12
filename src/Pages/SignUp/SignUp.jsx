@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function SignUp() {
+import Swal from "sweetalert2";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+
+const SignUp = () => {
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -14,12 +21,45 @@ function SignUp() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
     watch,
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    createUser(data.email, data.password).then((res) => {
+      const loggedUser = res.user;
+      console.log(loggedUser);
+
+      updateUserProfile(data.name, data.photoURL)
+        .then(() => {
+          const savedUser = { name: data.name, email: data.email };
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(savedUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "User Created Successfully",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/");
+              }
+            });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
   };
 
   const password = watch("password", "");
@@ -81,7 +121,8 @@ function SignUp() {
                 {...register("password", {
                   required: true,
                   minLength: 6,
-                  pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{6,}$/,
+                  pattern:
+                    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{6,}$/,
                 })}
                 type={showPassword ? "text" : "password"}
                 id="password"
@@ -105,10 +146,15 @@ function SignUp() {
               <p className="text-red-500">This field is required</p>
             )}
             {errors?.password?.type === "minLength" && (
-              <p className="text-red-500">Password must be at least 6 characters long</p>
+              <p className="text-red-500">
+                Password must be at least 6 characters long
+              </p>
             )}
             {errors?.password?.type === "pattern" && (
-              <p className="text-red-500">Password must contain at least one capital letter, one special character, and one digit</p>
+              <p className="text-red-500">
+                Password must contain at least one capital letter, one special
+                character, and one digit
+              </p>
             )}
 
             <label
@@ -211,6 +257,6 @@ function SignUp() {
       </div>
     </div>
   );
-}
+};
 
 export default SignUp;
