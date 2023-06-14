@@ -1,12 +1,12 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
-import Swal from "sweetalert2";
-const Login = () => {
 
+const Login = () => {
   const { signIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -27,35 +27,40 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    signIn(data.email, data.password)
-    .then(result => {
-        const user = result.user;
-        console.log(user);
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "User Login successful.",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate(from, { replace: true });
-    })
+    const { email, password } = data;
+
+    console.log(email, password);
+    signIn(email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
+      Swal.fire({
+        title: "User Logged in Successfully",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+
+        customClass: {
+          confirmButton: "swal-button",
+        },
+      });
+      navigate(from, { replace: true });
+    });
   };
 
-  
-
-
   return (
-    <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <div className="w-full rounded-lg shadow-xl  md:mt-0 sm:max-w-md xl:p-0 ">
-        <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+    <div className="flex flex-col items-center justify-center px-6 py-4 mx-auto md:h-screen lg:py-0">
+      <div className="w-full rounded-lg shadow-xl md:mt-0 sm:max-w-md xl:p-0">
+        <div className="p-4 space-y-4 md:space-y-6 sm:p-8">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-4 md:space-y-6"
+            className="space-y-4 md:space-y-2"
           >
             <label
               name="email"
-              className="block text-sm font-medium text-gray-900 "
+              className="block text-sm font-medium text-gray-900"
             >
               Your email
             </label>
@@ -83,7 +88,7 @@ const Login = () => {
               <input
                 {...register("password", { required: true })}
                 type={showPassword ? "text" : "password"}
-                className="w-full px-4 py-2  border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
               />
               <div>
                 <span className="absolute inset-y-0 right-0 flex items-center pr-4 cursor-pointer">
@@ -105,17 +110,17 @@ const Login = () => {
 
             <input
               type="submit"
-              className="px-5 py-2  font-medium text-white bg-red-500 rounded-md cursor-pointer hover:bg-red-300"
+              className="w-20 px-2 py-2 font-medium text-white bg-red-500 rounded-md cursor-pointer hover:bg-red-300"
               value="Login"
             />
 
-            <SocialLogin></SocialLogin>
+            <SocialLogin />
 
             <p className="text-sm font-dark">
               Don't have an account yet?{" "}
               <Link
                 to="/signup"
-                className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                className="font-bold text-primary-600 hover:underline dark:text-primary-500"
               >
                 Sign up
               </Link>
@@ -125,6 +130,6 @@ const Login = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Login;

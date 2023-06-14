@@ -1,0 +1,222 @@
+[
+    {
+        "_id": 1,
+        "image": "https://i.ibb.co/RzTvLw9/pexels-yan-krukau-8190785.jpg",
+        "name": "Guitar Lessons",
+        "instructor": "John Smith",
+        "email": "johnsmith@example.com",
+        "availableSeats": 10,
+        "price": 50,
+        "category": "Guitar",
+        "numOfStudent": 20
+    },
+    {
+        "_id": 2,
+        "image": "https://i.ibb.co/Fh430nx/pexels-yan-krukau-8520514.jpg",
+        "name": "Piano Class",
+        "instructor": "Emily Johnson",
+        "email": "emilyjohnson@example.com",
+        "availableSeats": 8,
+        "price": 70,
+        "category": "Piano",
+        "numOfStudent": 30
+    },
+    {
+        "_id": 3,
+        "image": "https://i.ibb.co/1dGLMN2/170326-CSMRecital-Spring17-nj-2187.jpg",
+        "name": "Drumming Workshop",
+        "instructor": "Michael Davis",
+        "email": "michaeldavis@example.com",
+        "availableSeats": 12,
+        "price": 60,
+        "category": "Drums",
+        "numOfStudent": 40
+    },
+    {
+        "_id": 4,
+        "image": "https://i.ibb.co/FqzCQP1/pexels-mart-production-8471931.jpg",
+        "name": "Violin Lessons",
+        "instructor": "Sarah Thompson",
+        "email": "sarahthompson@example.com",
+        "availableSeats": 15,
+        "price": 55,
+        "category": "Violin",
+        "numOfStudent": 33
+    },
+    {
+        "_id": 5,
+        "image": "https://i.ibb.co/wchVqZ1/pexels-shvets-production-8929205.jpg",
+        "name": "Saxophone Class",
+        "instructor": "Daniel Wilson",
+        "email": "danielwilson@example.com",
+        "availableSeats": 5,
+        "price": 80,
+        "category": "Saxophone",
+        "numOfStudent": 54
+    },
+    {
+        "_id": 6,
+        "image": "https://i.ibb.co/PTmX8Bk/pexels-pavel-danilyuk-7520935.jpg",
+        "name": "Bass Guitar Workshop",
+        "instructor": "Sophia Lee",
+        "email": "sophialee@example.com",
+        "availableSeats": 10,
+        "price": 65,
+        "category": "Bass Guitar",
+        "numOfStudent": 15
+    },
+    {
+        "_id": 7,
+        "image": "https://i.ibb.co/vqxLnVL/pexels-pixabay-236149.jpg",
+        "name": "Vocal Training",
+        "instructor": "Benjamin Adams",
+        "email": "benjaminadams@example.com",
+        "availableSeats": 6,
+        "price": 75,
+        "category": "Vocals",
+        "numOfStudent": 30
+    },
+    {
+        "_id": 8,
+        "image": "https://i.ibb.co/HKyw1Wz/pexels-cottonbro-studio-4709857.jpg",
+        "name": "Flute Lessons",
+        "instructor": "Ava Wilson",
+        "email": "avawilson@example.com",
+        "availableSeats": 8,
+        "price": 60,
+        "category": "Flute",
+        "numOfStudent": 20
+    },
+    {
+        "_id": 9,
+        "image": "https://i.ibb.co/ZcYsFGT/pexels-pnw-production-7577333.jpg",
+        "name": "Trumpet Class",
+        "instructor": "James Miller",
+        "email": "jamesmiller@example.com",
+        "availableSeats": 12,
+        "price": 45,
+        "category": "Trumpet",
+        "numOfStudent": 22
+    },
+    {
+        "_id": 10,
+        "image": "https://i.ibb.co/4SZmRjt/pexels-hugo-mart-nez-16948110.jpg",
+        "name": "Keyboard Workshop",
+        "instructor": "Natalie Thomas",
+        "email": "nataliethomas@example.com",
+        "availableSeats": 4,
+        "price": 90,
+        "category": "Keyboard",
+        "numOfStudent": 21
+    },
+    {
+        "_id": 11,
+        "image": "https://i.ibb.co/Jt6vDMD/pexels-yan-krukau-8519712.jpg",
+        "name": "Cello Lessons",
+        "instructor": "Jacob Clark",
+        "email": "jacobclark@example.com",
+        "availableSeats": 7,
+        "price": 70,
+        "category": "Cello",
+        "numOfStudent": 22
+    },
+    {
+        "_id": 12,
+        "image": "https://i.ibb.co/fCZ5ttL/pexels-skitterphoto-951.jpg",
+        "name": "Harp Class",
+        "instructor": "Chloe Adams",
+        "email": "chloeadams@example.com",
+        "availableSeats": 10,
+        "price": 55,
+        "category": "Harp",
+        "numOfStudent": 21
+    },
+    {
+        "_id": 13,
+        "image": "https://i.ibb.co/jb3yK5w/pexels-pixabay-164835.jpg",
+        "name": "Electric Guitar Workshop",
+        "instructor": "William Turner",
+        "email": "williamturner@example.com",
+        "availableSeats": 15,
+        "price": 60,
+        "category": "Electric Guitar",
+        "numOfStudent": 40
+    },
+    {
+        "_id": 14,
+        "image": "https://i.ibb.co/WDggb46/pexels-ketut-subiyanto-4473444.jpg",
+        "name": "Ukulele Class",
+        "instructor": "Olivia Roberts",
+        "email": "oliviaroberts@example.com",
+        "availableSeats": 10,
+        "price": 40,
+        "category": "Ukulele",
+        "numOfStudent": 40
+    },
+    {
+        "_id": 15,
+        "image": "https://i.ibb.co/YjjhH6J/pexels-yan-krukau-8520102.jpg",
+        "name": "Accordion Lessons",
+        "instructor": "Liam Anderson",
+        "email": "liamanderson@example.com",
+        "availableSeats": 8,
+        "price": 50,
+        "category": "Accordion",
+        "numOfStudent": 29
+    },
+    {
+        "_id": 16,
+        "image": "https://i.ibb.co/gDRyQZM/pexels-cottonbro-studio-7095727.jpg",
+        "name": "Clarinet Class",
+        "instructor": "Harper Garcia",
+        "email": "harpergarcia@example.com",
+        "availableSeats": 6,
+        "price": 85,
+        "category": "Clarinet",
+        "numOfStudent": 28
+    },
+    {
+        "_id": 17,
+        "image": "https://i.ibb.co/rfkK3Js/baby-gf29f54913-1280.jpg",
+        "name": "Tabla Workshop",
+        "instructor": "Ella Wright",
+        "email": "ellawright@example.com",
+        "availableSeats": 12,
+        "price": 55,
+        "category": "Tabla",
+        "numOfStudent": 25
+    },
+    {
+        "_id": 18,
+        "image": "https://i.ibb.co/zXsD9tS/pexels-cottonbro-studio-7097789.jpg",
+        "name": "Mandolin Lessons",
+        "instructor": "Alexander Ramirez",
+        "email": "alexanderramirez@example.com",
+        "availableSeats": 10,
+        "price": 60,
+        "category": "Mandolin",
+        "numOfStudent": 24
+    },
+    {
+        "_id": 19,
+        "image": "https://i.ibb.co/8jDZPXT/pexels-pavel-danilyuk-9143511.jpg",
+        "name": "Harmonica Class",
+        "instructor": "Victoria Baker",
+        "email": "victoriabaker@example.com",
+        "availableSeats": 6,
+        "price": 70,
+        "category": "Harmonica",
+        "numOfStudent": 46
+    },
+    {
+        "_id": 20,
+        "image": "https://i.ibb.co/WnmnxFm/OBO-Oboe-spielen-Herausforderungen-nicht-unterschaetzen-Teaser-Website-1200x780.jpg",
+        "name": "Oboe Lessons",
+        "instructor": "Sebastian Morris",
+        "email": "sebastianmorris@example.com",
+        "availableSeats": 8,
+        "price": 75,
+        "category": "Oboe",
+        "numOfStudent": 33
+    }
+]

@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.drawer-side a.active {
+  color: rgb(25, 11, 114);
+  font-weight: bold;
+  font-size: medium;
+}
+
+.drawer-side a {
+  background-color: transparent;
+}
+
+
+.swal-button {
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+
+.dark {
+  background-color: black;
+  color: white;
+}

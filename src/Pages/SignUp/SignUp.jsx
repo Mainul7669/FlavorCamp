@@ -1,40 +1,41 @@
-import { useContext, useState } from "react";
-import { useForm } from "react-hook-form";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 import { Link, useNavigate } from "react-router-dom";
-
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import { useForm } from "react-hook-form";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+        watch,
+      } = useForm();
+
   const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const navigate = useNavigate();
-
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-    watch,
-  } = useForm();
-
   const onSubmit = (data) => {
     createUser(data.email, data.password).then((res) => {
       const loggedUser = res.user;
-      console.log(loggedUser);
-
+console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          const savedUser = { name: data.name, email: data.email };
-          fetch("http://localhost:5000/users", {
+          const savedUser = {
+            name: data.name,
+            email: data.email,
+            image: data.photoURL,
+          };
+          fetch("https://assignment-12-server-one-theta.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
